@@ -26,19 +26,20 @@ defmodule Hangman.Game do
 
   def tally(game) do
     %{
-      game_state: game.game.state,
+      game_state: game.game_state,
       turns_left: game.turns_left,
-      letters: game.letters |> reveal_guessed(game.used)
+      letters: game.letters |> reveal_guessed(game.used),
+      used: game.used
     }
   end
 
   ###############################################
 
-  defp accept_move(game, _guess, _already_quessed = true) do
+  defp accept_move(game, _guess, _already_guessed = true) do
     Map.put(game, :game_state, :already_used)
   end
 
-  defp accept_move(game, guess, _already_quessed = false) do
+  defp accept_move(game, guess, _already_guessed = false) do
     Map.put(game, :used, MapSet.put(game.used, guess))
     |> score_guess(Enum.member?(game.letters, guess))
   end
