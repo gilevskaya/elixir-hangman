@@ -1,13 +1,5 @@
 defmodule Hangman do
-  alias Hangman.Game
-  defdelegate new_game(), to: Game
-  defdelegate tally(game), to: Game
-
-  def make_move(game, guess) do
-    game = Game.make_move(game, guess)
-    {game, tally(game)}
-  end
+  defdelegate new_game(), to: Hangman.Game
+  defdelegate tally(game), to: Hangman.Game
+  defdelegate make_move(game, guess), to: Hangman.Game
 end
-
-# Hangman.new_game()
-# make_move(ctx, "a") -> {ctx, tally}
