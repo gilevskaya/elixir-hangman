@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "text_client"
+		},
+		{
+			"path": "gallows"
 		}
 	]
 }
