@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "gallows"
+		},
+		{
+			"path": "socket_gallows"
 		}
 	]
 }
