@@ -14,4 +14,12 @@ defmodule GallowsWeb.HangmanView do
   def word_so_far(tally) do
     tally.letters |> Enum.join(" ")
   end
+
+  def turn(left, target) when target >= left do
+    "opacity: 1"
+  end
+
+  def turn(_, _) do
+    "opacity: 0.1"
+  end
 end

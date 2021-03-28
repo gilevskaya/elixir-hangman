@@ -1,17 +1,9 @@
-<div style="margin-top: 50px;">
+<div style="margin-top: 50px; display: flex;">
+  <div style="width: 250px">
+    <%= render "_gallows.html", left: @tally.turns_left %>
+  </div>
 
-  <%= game_state(@tally.game_state) %>
-
-  <div>turns left: <%= @tally.turns_left %></div>
-  <div>word so far: <%= word_so_far(@tally) %></div>
-
-  <%= if game_over?(@tally) do %>
-    <%= new_game_button(@conn) %>
-  <% else %>
-    <%= form_for(@conn, Routes. hangman_path(@conn, :make_move), [as: :make_move, method: :put], fn f -> %>
-      <%= text_input(f, :guess) %>
-      <%= submit("make next move") %>
-    <% end) %>
-  <% end %>
-
+  <div style="flex: 1; margin-left: 50px;">
+    <%= render "_status.html", tally: @tally, conn: @conn %>
+  </div>
 </div>
